@@ -5,21 +5,27 @@
  */
 package com.gmail.soch.sebastian.flashcards;
 
-import org.springframework.context.annotation.Primary;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import com.gmail.soch.sebastian.flashcards.data.FlashCard;
 import org.springframework.beans.factory.annotation.Qualifier;
-
 /**
  *
  * @author ssoch
  */
-@Component
-@Qualifier("fake")
-public class LessonManagerFake implements LessonManagerIntf {
 
+@Component
+@Qualifier("database")
+@Transactional
+public class LessonManagerDB implements LessonManagerIntf {
+
+    @PersistenceContext
+    private EntityManager emf;
+        
     @Override
     public FlashCard getFlashCard() {
-        return new FlashCard(1, "Drzwi", "Door");
+        return emf.find(FlashCard.class, 1);
     }
 }

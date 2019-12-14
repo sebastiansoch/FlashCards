@@ -5,6 +5,7 @@
  */
 package com.gmail.soch.sebastian.flashcards;
 
+import com.gmail.soch.sebastian.flashcards.data.FlashCard;
 /**
  *
  * @author ssoch
