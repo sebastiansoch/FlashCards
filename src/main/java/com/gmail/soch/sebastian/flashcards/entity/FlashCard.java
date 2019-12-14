@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.gmail.soch.sebastian.flashcards.data;
+package com.gmail.soch.sebastian.flashcards.entity;
 
 import java.io.Serializable;
 import javax.persistence.Basic;

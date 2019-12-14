@@ -9,7 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-import com.gmail.soch.sebastian.flashcards.data.FlashCard;
+import com.gmail.soch.sebastian.flashcards.entity.FlashCard;
 import org.springframework.beans.factory.annotation.Qualifier;
 /**
  *
@@ -22,10 +22,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 public class LessonManagerDB implements LessonManagerIntf {
 
     @PersistenceContext
-    private EntityManager emf;
+    private EntityManager entityManager;
         
     @Override
     public FlashCard getFlashCard() {
-        return emf.find(FlashCard.class, 1);
+        return entityManager.find(FlashCard.class, 1);
     }
 }
