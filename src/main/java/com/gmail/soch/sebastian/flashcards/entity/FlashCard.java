@@ -30,7 +30,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "FlashCard.findAll", query = "SELECT f FROM FlashCard f"),
     @NamedQuery(name = "FlashCard.findById", query = "SELECT f FROM FlashCard f WHERE f.id = :id"),
     @NamedQuery(name = "FlashCard.findByQuestion", query = "SELECT f FROM FlashCard f WHERE f.question = :question"),
-    @NamedQuery(name = "FlashCard.findByAnswer", query = "SELECT f FROM FlashCard f WHERE f.answer = :answer")})
+    @NamedQuery(name = "FlashCard.findByAnswer", query = "SELECT f FROM FlashCard f WHERE f.answer = :answer"),
+    @NamedQuery(name = "FlashCard.findByNbCorrect", query = "SELECT f FROM FlashCard f WHERE f.nbCorrect = :nbCorrect"),
+    @NamedQuery(name = "FlashCard.findByNbIncorrect", query = "SELECT f FROM FlashCard f WHERE f.nbIncorrect = :nbIncorrect")
+})
 public class FlashCard implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -49,6 +52,10 @@ public class FlashCard implements Serializable {
     @Size(min = 1, max = 2147483647)
     @Column(name = "answer")
     private String answer;
+    @Column(name = "nb_correct")
+    private Integer nbCorrect;
+    @Column(name = "nb_incorrect")
+    private Integer nbIncorrect;
 
     public FlashCard() {
     }
@@ -87,6 +94,22 @@ public class FlashCard implements Serializable {
         this.answer = answer;
     }
 
+    public Integer getNbCorrect() {
+        return nbCorrect;
+    }
+
+    public void setNbCorrect(Integer nbCorrect) {
+        this.nbCorrect = nbCorrect;
+    }
+
+    public Integer getNbIncorrect() {
+        return nbIncorrect;
+    }
+
+    public void setNbIncorrect(Integer nbIncorrect) {
+        this.nbIncorrect = nbIncorrect;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -109,7 +132,7 @@ public class FlashCard implements Serializable {
 
     @Override
     public String toString() {
-        return "com.gmail.soch.sebastian.flashcards.data.FlashCard[ id=" + id + " ]";
+        return "com.gmail.soch.sebastian.flashcards.entity.FlashCard[ id=" + id + " ]";
     }
     
 }

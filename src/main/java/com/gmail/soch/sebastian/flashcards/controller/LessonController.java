@@ -17,16 +17,28 @@ import org.springframework.beans.factory.annotation.Qualifier;
  * @author ssoch
  */
 @Controller
-public class FlashCardController {
+public class LessonController {
 
     @Autowired
     @Qualifier("database")
     private LessonManagerIntf lessonManager;
 
-    @RequestMapping(value = "flashcard")
+    @RequestMapping
     public String showQuestion(Model model) {
         model.addAttribute("flash_card", lessonManager.getFlashCard());
-        return "flashcard";
+        return "lesson";
+    }
+    
+    @RequestMapping("/correct")
+    public String correctAnswer() {
+        lessonManager.setCorrectAnswer();
+        return "redirect:/logic/lesson";
+    }
+         
+    @RequestMapping("/incorrect")
+    public String incorrectAnswer() {
+        lessonManager.setIncorrectAnswer();
+        return "redirect:/logic/lesson";
     }
          
 }

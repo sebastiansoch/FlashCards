@@ -14,5 +14,8 @@ import com.gmail.soch.sebastian.flashcards.entity.FlashCard;
 public interface LessonManagerIntf {
 
     public FlashCard getFlashCard();
+    default public void setCorrectAnswer() {}
+    default public void setIncorrectAnswer() {}
+    
 
 }
