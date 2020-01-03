@@ -3,13 +3,15 @@
   <persistence-unit name="com.gmail.soch.sebastian_FlashCards_war_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     <class>com.gmail.soch.sebastian.flashcards.entity.FlashCard</class>
+    <class>com.gmail.soch.sebastian.flashcards.entity.Category</class>
+    <class>com.gmail.soch.sebastian.flashcards.entity.PartOfSpeech</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/EnglishFlashCards"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
       <property name="javax.persistence.jdbc.password" value="wKnpim100razy"/>
-      <property name = "hibernate.show_sql" value = "true" />
+      <property name="hibernate.show_sql" value="true"/>
     </properties>
   </persistence-unit>
 </persistence>

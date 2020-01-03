@@ -5,11 +5,9 @@
  */
 package com.gmail.soch.sebastian.flashcards;
 
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 import com.gmail.soch.sebastian.flashcards.entity.FlashCard;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Repository;
 
 /**
  *
