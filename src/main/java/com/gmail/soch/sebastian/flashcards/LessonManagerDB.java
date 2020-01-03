@@ -12,14 +12,20 @@ import com.gmail.soch.sebastian.flashcards.entity.FlashCard;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.context.WebApplicationContext;
+
 /**
  *
  * @author ssoch
  */
 
 @Qualifier("database")
-@Repository
+@Component
+@Scope(value=WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.INTERFACES)
 @Transactional
 public class LessonManagerDB implements LessonManagerIntf {
 

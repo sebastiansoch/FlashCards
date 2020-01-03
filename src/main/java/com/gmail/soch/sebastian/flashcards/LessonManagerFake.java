@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
  *
  * @author ssoch
  */
-@Repository
+@Component
 @Qualifier("fake")
 public class LessonManagerFake implements LessonManagerIntf {
 
