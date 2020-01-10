@@ -20,7 +20,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 public class LessonController {
 
     @Autowired
-    @Qualifier("database")
     private LessonManagerIntf lessonManager;
 
     @RequestMapping
