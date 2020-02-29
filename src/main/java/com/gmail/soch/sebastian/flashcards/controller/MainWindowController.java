@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MainWindowController {
     
-    @RequestMapping
+    @RequestMapping("/mainwindow")
     public String showMainWindow(Model model) {
         return "mainwindow";
     }

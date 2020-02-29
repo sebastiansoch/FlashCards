@@ -22,7 +22,7 @@ public class LessonController {
     @Autowired
     private LessonManagerIntf lessonManager;
 
-    @RequestMapping
+    @RequestMapping("/lesson")
     public String showQuestion(Model model) {
         model.addAttribute("flash_card", lessonManager.getFlashCard());
         return "lesson";

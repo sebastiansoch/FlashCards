@@ -23,7 +23,7 @@ public class ManageFlashCardsController {
     @Autowired
     private LessonManagerIntf lessonManageraa;
     
-    @RequestMapping
+    @RequestMapping("/manageflashcards")
     public String getInitializationData(Model model) {
         model.addAttribute("categories", lessonManageraa.getCategories());
         model.addAttribute("part_of_speech", lessonManageraa.getPartOfSpeech());
