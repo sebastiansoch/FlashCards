@@ -14,7 +14,7 @@
     </head>
     <body>
         <h1>Flash Card Manager</h1>
-        
+
         <form action="*">
             Question: <input name="question"></textarea>
             <br />
@@ -35,5 +35,11 @@
             <input type="submit" value="Add flash card" />
         </form>
         
+        </ br></ br></ br>
+
+        <form action="<c:url value='/logic/logout'/>" method='POST'>
+            <input type="submit" value="Logout"/>
+            <!--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>-->
+        </form>
     </body>
 </html>

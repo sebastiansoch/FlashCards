@@ -31,8 +31,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .csrf().disable()
+                .formLogin()
+                .and()
+                .logout()
+                .logoutSuccessUrl("/logic/mainwindow")
+                .logoutUrl("/logic/logout")
+                .and()
                 .authorizeRequests()
+                .antMatchers("/logic/manageflashcards").hasRole("ADMIN")
                 .anyRequest().permitAll();
+
     }
 
 }
