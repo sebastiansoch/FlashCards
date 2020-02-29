@@ -5,6 +5,7 @@
     <class>com.gmail.soch.sebastian.flashcards.entity.FlashCard</class>
     <class>com.gmail.soch.sebastian.flashcards.entity.Category</class>
     <class>com.gmail.soch.sebastian.flashcards.entity.PartOfSpeech</class>
+    <class>com.gmail.soch.sebastian.flashcards.entity.UserAuth</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/EnglishFlashCards"/>

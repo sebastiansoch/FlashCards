@@ -5,8 +5,10 @@
  */
 package com.gmail.soch.sebastian.flashcards.security;
 
+import com.gmail.soch.sebastian.flashcards.AuthenticationManager;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -22,12 +24,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class FlashCardUserDetailsService implements UserDetailsService{
 
+    @Autowired
+    AuthenticationManager authenticationManager;
         
     @Override
-    public UserDetails loadUserByUsername(String arg0) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-        return new User("a", "a", authorities);
+        
+        return new User(username , authenticationManager.getUserAuthData(username).getPassword(), authorities);
     }
     
 }
