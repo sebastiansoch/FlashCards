@@ -5,6 +5,7 @@
  */
 package com.gmail.soch.sebastian.flashcards.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -18,7 +19,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
+/*
     @Override
     protected void configure(AuthenticationManagerBuilder authenticationManager) throws Exception {
         authenticationManager
@@ -26,6 +27,32 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser("seba").password("admin123").roles("USER")
                 .and()
                 .withUser("admin").password("admin123").roles("USER", "ADMIN");
+    }
+*/
+
+/*
+    private String queryUserName = "SELECT username, password, enabled FROM user_auth WHERE username=?";
+    private String queryAuth = "SELECT username, 'ROLE_USER' FROM user_auth where username=?";
+    
+    @Autowired
+    DataSource dataSource;
+    
+    @Override
+    protected void configure(AuthenticationManagerBuilder authenticationManager) throws Exception {
+        authenticationManager
+                .jdbcAuthentication()
+                .dataSource(dataSource)
+                .usersByUsernameQuery(queryUserName)
+                .authoritiesByUsernameQuery(queryAuth);
+    }
+*/
+    @Autowired
+    FlashCardUserDetailsService flashCardUserDetailsService;
+            
+    @Override
+    protected void configure(AuthenticationManagerBuilder authenticationManager) throws Exception {
+        authenticationManager
+                .userDetailsService(flashCardUserDetailsService);
     }
 
     @Override
@@ -40,8 +67,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/logic/manageflashcards").hasRole("ADMIN")
+                .antMatchers("/logic/lesson").hasAnyRole("USER", "ADMIN")
                 .anyRequest().permitAll();
-
     }
 
 }
