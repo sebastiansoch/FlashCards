@@ -87,7 +87,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     protected PasswordEncoder passwordEncoder () {
-        StandardPasswordEncoder encoder = new StandardPasswordEncoder("53Kr3t");
+        StandardPasswordEncoder encoder = new StandardPasswordEncoder("Dupa12");
         return encoder;
     }
 }
