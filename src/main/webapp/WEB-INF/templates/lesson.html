@@ -18,10 +18,8 @@
     </head>
     <body>
 
-        <h3>Question:</h3>
-        <h1 th:text="${flash_card.question}" />
-        <h3>Answer:</h3>
-        <h1 id="Answer" style="display: none" th:text="${flash_card.answer}"/>
+        <h1>Question: <span th:text="${flash_card.question}" /></h1>
+        <h1>Answer: <span id="Answer" style="display: none" th:text="${flash_card.answer}"/></h1>
         <button onclick="showAnswer()">Show Answer</button>
         <br />
         <table style="padding-top: 30px">
