@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>JSP Page</title>
+        <script>
+            function showAnswer() {
+                var show = document.getElementById("Answer");
+                if (show.style.display === "none") {
+                    show.style.display = "block";
+                } else {
+                    show.style.display = "none";
+                }
+            }
+        </script>
+    </head>
+    <body>
+
+        <h3>Question:</h3>
+        <h1 th:text="${flash_card.question}" />
+        <h3>Answer:</h3>
+        <h1 id="Answer" style="display: none" th:text="${flash_card.answer}"/>
+        <button onclick="showAnswer()">Show Answer</button>
+        <br />
+        <table style="padding-top: 30px">
+            <tr>
+                <td style="padding-left: 30px; padding-right: 30px">
+
+                    <a th:href="@{/logic/incorrect}">
+                        <img th:src="@{/pictures/thumb-down.png}" style="width: auto" />
+                    </a>
+                </td>
+                <td style="padding-left: 30px; padding-right: 30px">
+                    <a th:href="@{/logic/correct}">
+                        <img th:src="@{/pictures/thumb-up.png}" style="width: auto"/>
+                    </a>
+                </td>
+            </tr>
+        </table>
+
+    </body>
+</html>
