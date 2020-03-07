@@ -6,11 +6,14 @@
 package com.gmail.soch.sebastian.flashcards.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.password.StandardPasswordEncoder;
 
 /**
  *
@@ -48,11 +51,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 */
     @Autowired
     FlashCardUserDetailsService flashCardUserDetailsService;
-            
+        
+    @Autowired
+    PasswordEncoder passwordEncoder;
+    
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder authenticationManager) throws Exception {
+//        authenticationManager
+//                .userDetailsService(flashCardUserDetailsService)
+//                .passwordEncoder(new StandardPasswordEncoder("53Kr3t"));
+//    }
+
     @Override
     protected void configure(AuthenticationManagerBuilder authenticationManager) throws Exception {
         authenticationManager
-                .userDetailsService(flashCardUserDetailsService);
+                .userDetailsService(flashCardUserDetailsService)
+                .passwordEncoder(passwordEncoder);
     }
 
     @Override
@@ -71,4 +85,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().permitAll();
     }
 
+    @Bean
+    protected PasswordEncoder passwordEncoder () {
+        StandardPasswordEncoder encoder = new StandardPasswordEncoder("53Kr3t");
+        return encoder;
+    }
 }

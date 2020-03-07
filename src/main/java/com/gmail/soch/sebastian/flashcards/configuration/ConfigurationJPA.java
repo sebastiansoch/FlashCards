@@ -11,13 +11,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  *
  * @author ssoch
  */
-@org.springframework.context.annotation.Configuration
-public class Configuration {
+@Configuration
+public class ConfigurationJPA {
 
     @Bean
     public DataSource dataSource() {
