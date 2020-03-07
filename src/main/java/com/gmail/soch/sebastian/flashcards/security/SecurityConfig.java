@@ -75,14 +75,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .formLogin()
                 .and()
+                .rememberMe()
+                    .tokenValiditySeconds(60)
+                .and()
                 .logout()
-                .logoutSuccessUrl("/logic/mainwindow")
-                .logoutUrl("/logic/logout")
+                    .logoutSuccessUrl("/logic/mainwindow")
+                    .logoutUrl("/logic/logout")
                 .and()
                 .authorizeRequests()
-                .antMatchers("/logic/manageflashcards").hasRole("ADMIN")
-                .antMatchers("/logic/lesson").hasAnyRole("USER", "ADMIN")
-                .anyRequest().permitAll();
+                    .antMatchers("/logic/manageflashcards").hasRole("ADMIN")
+                    .antMatchers("/logic/lesson").hasAnyRole("USER", "ADMIN")
+                    .anyRequest().permitAll();
     }
 
     @Bean

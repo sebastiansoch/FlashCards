@@ -30,7 +30,7 @@ public class FlashCardUserDetailsService implements UserDetailsService{
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         List<GrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+        authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
         
         return new User(username , authenticationManager.getUserAuthData(username).getPassword(), authorities);
     }
