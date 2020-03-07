@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.gmail.soch.sebastian.flashcards.LessonManagerIntf;
-import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  *
@@ -20,10 +19,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 public class LessonController {
 
     @Autowired
-    @Qualifier("database")
     private LessonManagerIntf lessonManager;
 
-    @RequestMapping
+    @RequestMapping("/lesson")
     public String showQuestion(Model model) {
         model.addAttribute("flash_card", lessonManager.getFlashCard());
         return "lesson";

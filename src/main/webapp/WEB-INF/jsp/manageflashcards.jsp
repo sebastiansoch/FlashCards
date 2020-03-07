@@ -4,6 +4,7 @@
     Author     : ssoch
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +13,33 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Flash Card Manager</h1>
+
+        <form action="*">
+            Question: <input name="question"></textarea>
+            <br />
+            Answer: <input name="answer"></textarea>
+            <br />
+            <select name="category">
+                <c:forEach items="${categories}" var="cat">
+                    <option>${cat.name}</option>    
+                </c:forEach>
+            </select>
+            <br />
+            <select name="category">
+                <c:forEach items="${part_of_speech}" var="pos">
+                    <option>${pos.name}</option>    
+                </c:forEach>
+            </select>
+            <br />
+            <input type="submit" value="Add flash card" />
+        </form>
+        
+        </ br></ br></ br>
+
+        <form action="<c:url value='/logic/logout'/>" method='POST'>
+            <input type="submit" value="Logout"/>
+            <!--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>-->
+        </form>
     </body>
 </html>

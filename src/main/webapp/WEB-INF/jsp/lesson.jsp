@@ -31,12 +31,12 @@
         <table style="padding-top: 30px">
             <tr>
                 <td style="padding-left: 30px; padding-right: 30px">
-                    <a href="<c:url value='lesson/incorrect'/>">
+                    <a href="<c:url value='incorrect'/>">
                         <img src="<c:url value='/pictures/thumb-down.png'/>" style="width: auto">
                     </a>
                 </td>
                 <td style="padding-left: 30px; padding-right: 30px">
-                    <a href="<c:url value='lesson/correct'/>">
+                    <a href="<c:url value='correct'/>">
                         <img src="<c:url value='/pictures/thumb-up.png'/>" style="width: auto">
                     </a>
                 </td>
