@@ -42,17 +42,21 @@ public class LessonManagerDB implements LessonManagerIntf {
     @Override
     public FlashCard getFlashCard() {
         if (flashCards == null) {
-            flashCards = emf.createEntityManager().find(Category.class, 2).getFlashCardCollection();
+            Query query = emf.createEntityManager().createNamedQuery("FlashCard.findAll");
+            flashCards = query.getResultList();
             iterator = flashCards.iterator();
         }
 
+        FlashCard flashCard = null;
         if (iterator.hasNext()) {
-            FlashCard flashCard = iterator.next();
+            flashCard = iterator.next();
             flashCardNb = flashCard.getId();
-            return flashCard;
+        } else {
+            iterator = flashCards.iterator();
+            flashCard = getFlashCard();
         }
 
-        return null;
+        return flashCard;
     }
 
     @Override

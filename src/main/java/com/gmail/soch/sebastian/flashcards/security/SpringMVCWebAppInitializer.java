@@ -5,6 +5,7 @@
  */
 package com.gmail.soch.sebastian.flashcards.security;
 
+import com.gmail.soch.sebastian.flashcards.configuration.LoginApplicationConfigThymeleaf;
 import com.gmail.soch.sebastian.flashcards.configuration.LoginApplicationConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -16,7 +17,8 @@ public class SpringMVCWebAppInitializer extends AbstractAnnotationConfigDispatch
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] {LoginApplicationConfig.class};
+//        return new Class[] {LoginApplicationConfig.class};
+        return new Class[] {LoginApplicationConfigThymeleaf.class};
     }
 
     @Override

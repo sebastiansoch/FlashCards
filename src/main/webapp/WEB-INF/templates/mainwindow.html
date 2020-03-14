@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Spittr</title>
+        <link rel="stylesheet"
+              type="text/css"
+              th:href="@{/resources/style.css}"></link>
+    </head>
+    <body>
+        <h1>Polish-English Flash Cards</h1>
+        <a th:href="@{/logic/lesson}">Lesson</a>
+        <a th:href="@{/logic/manageflashcards}">Manage Flash Cards</a>
+    </body>
+</html>
