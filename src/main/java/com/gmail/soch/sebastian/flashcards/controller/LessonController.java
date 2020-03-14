@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.gmail.soch.sebastian.flashcards.LessonManagerIntf;
+import com.gmail.soch.sebastian.flashcards.aspect.Logged;
 
 /**
  *
@@ -22,18 +23,21 @@ public class LessonController {
     private LessonManagerIntf lessonManager;
 
     @RequestMapping("/lesson")
+    @Logged
     public String showQuestion(Model model) {
         model.addAttribute("flash_card", lessonManager.getFlashCard());
         return "lesson";
     }
     
     @RequestMapping("/correct")
+    @Logged
     public String correctAnswer() {
         lessonManager.setCorrectAnswer();
         return "redirect:/logic/lesson";
     }
          
     @RequestMapping("/incorrect")
+    @Logged
     public String incorrectAnswer() {
         lessonManager.setIncorrectAnswer();
         return "redirect:/logic/lesson";

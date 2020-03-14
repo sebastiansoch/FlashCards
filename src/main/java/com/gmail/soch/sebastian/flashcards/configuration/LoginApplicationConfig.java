@@ -9,6 +9,7 @@ import com.gmail.soch.sebastian.flashcards.security.SecurityConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -20,6 +21,7 @@ import org.springframework.web.servlet.view.JstlView;
  */
 @Configuration
 @EnableWebMvc
+@EnableAspectJAutoProxy
 @ComponentScan({"com.gmail.soch.sebastian.flashcards"})
 @Import(value = {SecurityConfig.class})
 public class LoginApplicationConfig {
