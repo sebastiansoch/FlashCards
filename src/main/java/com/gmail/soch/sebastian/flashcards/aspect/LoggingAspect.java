@@ -45,6 +45,10 @@ public class LoggingAspect {
 //        if (log.isDebugEnabled()) {
             log.debug("DUPA DUPA DUPA DUPA DUPA DUPA DUPA DUPA DUPA Enter: {}.{}() with argument[s] = {}", joinPoint.getSignature().getDeclaringTypeName(),
                     joinPoint.getSignature().getName(), Arrays.toString(joinPoint.getArgs()));
+            log.info("INFO DUPA DUPA DUPA DUPA DUPA DUPA DUPA DUPA DUPA Enter: {}.{}() with argument[s] = {}", joinPoint.getSignature().getDeclaringTypeName(),
+                    joinPoint.getSignature().getName(), Arrays.toString(joinPoint.getArgs()));
+
+
 //        }
 
         try {
