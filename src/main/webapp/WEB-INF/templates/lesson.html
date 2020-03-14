@@ -20,7 +20,8 @@
 
         <!--jQuery-->
         <script src="../js/lesson.js" />
-
+        <script src="../js/hello.js" />
+        
     </head>
     <body>
 
@@ -52,5 +53,9 @@
         <form th:action="@{/logic/logout}" method='POST'>
             <input type="submit" value="Logout"/>
         </form>
+        <p></p>
+        <button id="greetings">REST data</button>
+        <h1 id="greeting-id"></h1>
+        <h1 id="greeting-content"></h1>
     </body>
 </html>
