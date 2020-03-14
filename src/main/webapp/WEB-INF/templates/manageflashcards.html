@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Manage Flash Cards</title>
+    </head>
+    <body>
+        <h1>Flash Card Manager</h1>
+
+        <form action="*">
+            Question: <input name="question" />
+            <br />
+            Answer: <input name="answer" />
+            <br />
+            <select name="category">
+                <th:forEach th:each="cat : ${categories}">
+                    <option th:text="${cat.name}"></option>    
+                </th:forEach>
+            </select>
+            <br />
+            <select name="part_of_speech">
+                <th:forEach th:each="pos : ${part_of_speech}">
+                    <option th:text="${pos.name}"></option>    
+                </th:forEach>
+            </select>
+            <br />
+            <input type="submit" value="Add flash card" />
+        </form>
+        <p></p>
+        <form th:action="@{/logic/logout}" method='POST'>
+            <input type="submit" value="Logout"/>
+            <!--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>-->
+        </form>
+        
+    </body>
+</html>
