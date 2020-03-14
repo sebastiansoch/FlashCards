@@ -5,24 +5,35 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Lesson</title>
-        <script>
-            function showAnswer() {
-                var show = document.getElementById("Answer");
-                if (show.style.display === "none") {
-                    show.style.display = "block";
-                } else {
-                    show.style.display = "none";
-                }
-            }
-        </script>
+
+        <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+        <!--                <script>
+                            function showAnswer() {
+                                var show = document.getElementById("Answer");
+                                if (show.style.display === "none") {
+                                    show.style.display = "block";
+                                } else {
+                                    show.style.display = "none";
+                                }
+                            }
+                        </script>-->
+
+        <!--jQuery-->
+        <script src="../js/lesson.js" />
+
     </head>
     <body>
 
+        <!--<h1>Question: <span th:text="${flash_card.question}" /></h1>-->
+        <!--<h1>Answer: <span id="Answer" style="display: none" th:text="${flash_card.answer}"/></h1>-->
+        <!--<button onclick="showAnswer()">Show Answer</button>-->
+
+        <!--jQuery-->
         <h1>Question: <span th:text="${flash_card.question}" /></h1>
-        <h1>Answer: <span id="Answer" style="display: none" th:text="${flash_card.answer}"/></h1>
-        <button onclick="showAnswer()">Show Answer</button>
+        <h1>Answer: <span id="Answer" th:text="${flash_card.answer}"/></h1>
+        <button id="answerBtn">Show Answer</button>
         <br />
-        <table style="padding-top: 30px">
+        <table id="thumbs" style="padding-top: 30px">
             <tr>
                 <td style="padding-left: 30px; padding-right: 30px">
 
@@ -40,7 +51,6 @@
         <p></p>
         <form th:action="@{/logic/logout}" method='POST'>
             <input type="submit" value="Logout"/>
-<!--            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>-->
         </form>
     </body>
 </html>
